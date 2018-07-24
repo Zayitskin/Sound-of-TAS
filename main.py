@@ -15,6 +15,10 @@ import struct, sys
 '''Mido facilitates the creation of the midi file'''
 from mido import Message, MidiFile, MidiTrack
 
+'''python2 compatibility'''
+from builtins import input
+from builtins import range
+
 '''
 This is all of the overhead for the midi file creation.
 The midi object itself and the track for the notes.
@@ -110,6 +114,3 @@ for i in inputs:
 '''Output the midi with the same name.'''
 midi.save(name + ".mid")
 print("Done.")
-
-    
-    
