@@ -1,0 +1,55 @@
+R08
+2 Bytes per Frame
+Byte 1: Player1
+Byte 2: Player2
+ 
+Bits        Hex     Buttons Pressed
+00000000    00      no buttons pressed
+11111111    ff      all buttons pressed
+ 
+00000001    01   Dpad Right
+00000010    02   Dpad Left
+00000100    04   Dpad Down
+00001000    08   Dpad Up
+00010000    10   Start
+00100000    20   Select
+01000000    40   B Button
+10000000    80   A Button
+ 
+==================================================================
+ 
+R16M
+16 Bytes per Frame
+Byte 1,2: Player1-1
+Byte 3,4: Player1-2
+Byte 5,6: Player1-3
+Byte 7,8: Player1-4
+Byte 9,10: Player2-1
+Byte 11,12: Player2-2
+Byte 13,14: Player2-3
+Byte 15,16: Player2-4
+ 
+Bits                Hex    Buttons Pressed
+00000000 00000000   0000   no buttons pressed
+11111111 11111111   ffff   all buttons pressed
+11111111 11110000   fff0   all normal buttons pressed
+ 
+10000000 00000000   8000   B Button
+01000000 00000000   4000   Y Button
+00100000 00000000   2000   Select Button
+00010000 00000000   1000   Start Button
+00001000 00000000   0800   Dpad Up
+00000100 00000000   0400   Dpad Down
+00000010 00000000   0200   Dpad Left
+00000001 00000000   0100   Dpad Right
+ 
+00000000 10000000   8000   A Button
+00000000 01000000   4000   X Button
+00000000 00100000   2000   L Button
+00000000 00010000   1000   R Button
+00000000 00001000   0800   1 Button
+00000000 00000100   0400   2 Button
+00000000 00000010   0200   3 Button
+00000000 00000001   0100   4 Button
+
+Thanks to TheMas3212 for showing me this.
