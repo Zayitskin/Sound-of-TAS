@@ -38,7 +38,7 @@ if len(sys.argv) > 1:
 else:
     name = input("Please input a file: ")
 
-'''Getting the data fromthe binary file'''
+'''Getting the data from the binary file'''
 f = open(name, "rb")
 data = f.read()
 f.close()
