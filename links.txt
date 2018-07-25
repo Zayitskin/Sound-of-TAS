@@ -1,0 +1,4 @@
+Links to useful resources
+
+https://mido.readthedocs.io/en/latest/lib.html
+http://cdn.roland.com/assets/media/pdf/SH-201_MI.pdf
