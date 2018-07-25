@@ -36,8 +36,8 @@ if len(sys.argv) > 1:
   for i in range(len(notes)):
     notes[i] = [int(notes[i]), False]
 else:
-  notes = [[48, False], [50, False], [52, False], [55, False], [57, False], [60, False], [62, False], [64, False],
-           [67, False], [69, False], [72, False], [74, False], [76, False], [79, False], [81, False], [84, False]]
+  notes = [[48, False], [51, False], [53, False], [55, False], [58, False], [60, False], [63, False], [65, False],
+           [67, False], [70, False], [72, False], [75, False], [77, False], [79, False], [82, False], [84, False]]
 '''
 This bit iterates through every possible combination of chords and
 adds them to the midi file. This will be a very long file.
@@ -47,29 +47,28 @@ note associated with that bit should change.
 If so, then it writes a midi event to the track, adding the delta time
 if it is the first event this loop, or with no time if it is not.
 '''
-format(int(i[0].hex(), 16), "08b")
 
-for chord in range(65536):
-  chord = format(int(chord, 16), "08b")
-  first = True
+for chord in range(255):
+  chord = format(chord, "08b")
+  firstOn, firstOff = True, True
   for i in range(len(chord)):
     bit = chord[i]
     if bit == "1":
-      if notes[i][1] == False
-        if first == True:
+      if notes[i][1] == False:
+        if firstOn == True:
           track.append(Message('note_on', note=notes[i][0], velocity=64, channel=1, time=120))
         else:
           track.append(Message('note_on', note=notes[i][0], velocity=64, channel=1, time=0))
-        first = False
+        firstOn = False
         notes[i][1] = True
-    elif bit == "0":
-      if notes[i][1] == True
-        if first == True:
-          track.append(Message('note_off', note=notes[i][0], velocity=64, channel=1, time=120))
-        else:
-          track.append(Message('note_off', note=notes[i][0], velocity=64, channel=1, time=0))
-        first = False
-        notes[i][1] = False
+  for i in range(len(chord)):
+    if notes[i][1] == True:
+      if firstOff == True:
+        track.append(Message('note_off', note=notes[i][0], velocity=64, channel=1, time=120))
+      else:
+        track.append(Message('note_off', note=notes[i][0], velocity=64, channel=1, time=0))
+      firstOff = False
+      notes[i][1] = False
 
 '''Finally, we write the midi object to a midi file.'''
 midi.save("allChords.mid")
