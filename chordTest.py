@@ -29,3 +29,36 @@ track = MidiTrack()
 midi.tracks.append(track)
 track.append(Message('program_change', program=88, channel=1, time=0))
 
+if len(sys.argv) > 1:
+  f = open(sys.argv[1])
+  notes = f.readLine().split(" ")
+  for i in range(len(notes)):
+    notes[i] = int(notes[i])
+else:
+  notes = [[48, False], [50, False], [52, False], [55, False], [57, False], [60, False], [62, False], [64, False],
+           [67, False], [69, False], [72, False], [74, False], [76, False], [79, False], [81, False], [84, False]]
+  
+for chord in range(65536):
+  chord = bin(chord)
+  first = True
+  for i in range(len(chord) -1, -1, -1):
+    bit = chord[i]
+    if bit == "1":
+      if notes[i][1] == False
+        if first == True:
+          track.append(Message('note_on', note=notes[i][0], velocity=64, channel=1, time=480))
+        else:
+          track.append(Message('note_on', note=notes[i][0], velocity=64, channel=1, time=0))
+        first = False
+        notes[i][1] = True
+    elif bit == "0":
+      if notes[i][1] == True
+        if first == True:
+          track.append(Message('note_off', note=notes[i][0], velocity=64, channel=1, time=480))
+        else:
+          track.append(Message('note_off', note=notes[i][0], velocity=64, channel=1, time=0))
+        first = False
+        notes[i][1] = False
+
+midi.save("allChords.mid")
+print("Done.")
