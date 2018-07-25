@@ -9,7 +9,7 @@ Eighth:  240  ticks  360  ticks
 64th:    30   ticks  45   ticks
 '''
 
-'''struct parses the binary file, sys rads from command line'''
+'''struct parses the binary file, sys reads from command line'''
 import struct, sys
 
 '''Mido facilitates the creation of the midi file'''
