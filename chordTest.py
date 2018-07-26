@@ -48,7 +48,7 @@ If so, then it writes a midi event to the track, adding the delta time
 if it is the first event this loop, or with no time if it is not.
 '''
 
-for chord in range(255):
+for chord in range(256):
   chord = format(chord, "08b")
   firstOn, firstOff = True, True
   for i in range(len(chord)):
