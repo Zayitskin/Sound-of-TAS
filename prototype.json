@@ -1,15 +1,30 @@
 {
-"header": 
-  {
-  "Controller Type":"normal",
-	"Controllers": 1,
-	"Overread": 0,
-	"DPCM Fix": false,
-	"Window Mode": 0,
-	"Dummy Frames": 0,
-	"Everdrive": false,
-	"Sound of TAS": true,
-	"Custom Scale": null
-  },
-"frames": "fbnsrthnutffgntumytdnytyrgfmtyrtdfnt..."
+	"header": 
+	{
+		"name": "nameOfTas",
+		"authors": "nameOfAuthors",
+		"Controller Type":"normal",
+		"inputs":
+		{
+			"buttons": "buttonData",
+			"axes": "axesData"
+		},
+		"Controllers": 1,
+		"Overread": 0,
+		"DPCM Fix": false,
+		"Window Mode": 0,
+		"Dummy Frames": 0,
+		"Everdrive": false,
+		"Sound of TAS": true,
+		"Custom Scale": null
+	},
+	"frames":
+	[
+		["buttonsData", "floats: *axes"],
+		["buttonsData", "floats: *axes"],
+		["buttonsData", "floats: *axes"],
+		["buttonsData", "floats: *axes"],
+		["etc........................."],
+		["buttonsData", "floats: *axes"]
+	]
 }
