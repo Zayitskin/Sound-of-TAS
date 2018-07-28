@@ -1,6 +1,6 @@
 import mido, time
 
-inport = mido.open_input("SoTASPort", virtual=True)
+inport = mido.open_input("OSoTASPort", virtual=True)
 outport = mido.open_output("TiMidity port 0")
 
 buffer = []
