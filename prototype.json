@@ -1,0 +1,15 @@
+{
+"header": 
+  {
+  "Controller Type":"normal",
+	"Controllers": 1,
+	"Overread": 0,
+	"DPCM Fix": false,
+	"Window Mode": 0,
+	"Dummy Frames": 0,
+	"Everdrive": false,
+	"Sound of TAS": true,
+	"Custom Scale": null
+  },
+"frames": "fbnsrthnutffgntumytdnytyrgfmtyrtdfnt..."
+}
