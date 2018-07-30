@@ -1,6 +1,8 @@
 # Sound-of-TAS
 Python script that turns binary files into midi files.
 
+This readme is quite out of date, take all information with a grain of salt.
+
 The Mido library is required, and the full list of dependencies is listed in dependences.txt.
 
 Note that the midi will desync from the run if the midi is created from a standard dump. Instead, create the midi from a dump_frames_all instead for best results.
