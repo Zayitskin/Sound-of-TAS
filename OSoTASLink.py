@@ -61,10 +61,13 @@ notes = [
     [67, False], [69, False], [72, False], [74, False], [76, False], [79, False], [81, False], [84, False]
     ]
 
-def playNotes(buffer):
+def playNotes(buffer, bits):
     buffer = buffer[1:]
     for i in range(1):
-        chord = format(bytearray(buffer[i])[0], "08b") + format(bytearray(buffer[i + 1])[0], "08b")
+        if int(bits) == 8:
+            chord = format(bytearray(buffer[i])[0], "08b")
+        else:
+            chord = format(bytearray(buffer[i])[0], "08b") + format(bytearray(buffer[i + 1])[0], "08b")
         midiPort.send(mido.Message("program_change", program=88, channel=int((i + 1) / 2)))
         for c in range(16): #len(chord)
             if chord[c] == '0' and notes[c][1] == False:
@@ -286,7 +289,7 @@ def send_frames(index, amount):
     if TASLINK_CONNECTED == 1:
         ser.write(''.join(runStatuses[index].inputBuffer[framecount:(framecount + amount)]))
         for i in range(amount):
-            playNotes(runStatuses[index].inputBuffer[framecount + i])
+            playNotes(runStatuses[index].inputBuffer[framecount + i], runStatuses[index].tasrun.controllerbits)
     else:
         print("DATA SENT: ", ''.join(runStatuses[index].inputBuffer[framecount:(framecount + amount)]))
 
