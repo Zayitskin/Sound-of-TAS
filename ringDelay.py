@@ -1,5 +1,7 @@
 import mido, time
 
+delay = 1
+
 inport = mido.open_input("OSoTASPort", virtual=True)
 outport = mido.open_output("TiMidity port 0")
 
@@ -10,7 +12,7 @@ try:
         clock = time.time()
         
         for msg in inport.iter_pending():
-            buffer.append([msg, clock + 1])
+            buffer.append([msg, clock + delay])
 
         for msg in buffer:
             print(msg)
